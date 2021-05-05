@@ -2,7 +2,7 @@
 
 A simple tool for displaying presentations on the terminal written in Ruby
 
-## Requeriments
+## Requirements
 
 Tested only in Ubuntu 20.04 and derivatives
 
@@ -23,11 +23,17 @@ Tested only in Ubuntu 20.04 and derivatives
 
 ```bash
 git clone https://github.com/guilhermefeitosa66/tpt.git ~/.tpt/
+
 cd ~/.tpt
+
 bundle install
+
 cp tpt.rb ./tpt
+
 echo "export PATH=$PATH:~/.tpt/" >> ~/.bashrc
+
 # or if you use zshell
+
 echo "export PATH=$PATH:~/.tpt/" >> ~/.zshrc
 ```
 
