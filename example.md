@@ -105,6 +105,10 @@ Inline `code` has `back-ticks around` it.
 ```javascript
 var s = "JavaScript syntax highlighting";
 alert(s);
+
+function showHello() {
+    alert("Hello!");
+}
 ```
 
 ```python

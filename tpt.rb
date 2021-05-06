@@ -27,24 +27,30 @@ class TPT
       comment: :bright_black
     }
 
+    WIDTH_TEXT = 60
+
+    BORDER = { type: :thick, top: false, bottom: false, left: false, right: false }
+
     def initialize(path, start_slider_number)
+        @path = path
+
         if (self.load_file(path) == false)
             self.quit()
         end
 
-        if (start_slider_number > @total_slides)
+        if (start_slider_number > @total_slides || start_slider_number < 1)
             @current_slide = 0
         else
-            @current_slide = start_slider_number
+            @current_slide = start_slider_number - 1
         end
 
         @cursor = TTY::Cursor
     end
 
     def show()
-        while (true)
-            print @cursor.hide()
+        print @cursor.hide()
 
+        while (true)
             system "clear"
 
             self.render_title_bar()
@@ -66,11 +72,13 @@ class TPT
           self.next_slide()
         when "b"
             self.prev_slide()
+        when "r"
+            self.load_file(@path)
         else
             "just reload the current slide"
         end
     end
-
+        # add margin left to the slid
     def next_slide()
         if @current_slide < @total_slides - 1
             @current_slide += 1
@@ -84,26 +92,21 @@ class TPT
     end
 
     def render_slide()
-
-        border_config = {type: :thick, top: false, bottom: false, left: false, right: false }
         max_width = TTY::Screen.width
         max_height = TTY::Screen.height
-        width_text_print_area = (max_width * 0.6).to_i
-        slide_width = (max_width * 0.6).to_i
-        margin_left = (max_width * 0.2).to_i
 
-        slide_content = TTY::Markdown.parse(@slides.at(@current_slide), theme: THEME, width: width_text_print_area)
-        puts slide_content
-        # box_slide = TTY::Box.frame(slide_content, width: slide_width, padding: 1, left: margin_left, border: border_config)
-        # puts box_slide
+        slide_content = TTY::Markdown.parse(@slides.at(@current_slide), theme: THEME, width: WIDTH_TEXT)
+        puts slide_content.gsub("\n", "\n\t")
+
+        # box = TTY::Box.frame(slide_content, width: 80, height: (max_height - 6), border: BORDER, left: 10)
+        # puts box
     end
 
     def render_title_bar()
         if @config.nil? == false
-            border_config = {type: :thick, top: false, bottom: false, left: false, right: false }
             max_width = TTY::Screen.width
             max_height = TTY::Screen.height
-            box_header = TTY::Box.frame(@config["title"], width: max_width, padding: 1, align: :center, border: border_config)
+            box_header = TTY::Box.frame(@config["title"], width: max_width, padding: 1, align: :center, border: BORDER)
             print box_header.bold.light_white.on_blue
         end
     end
@@ -113,13 +116,12 @@ class TPT
         max_height = TTY::Screen.height
         footer_width = (max_width * 0.5).to_i
         top_position_footer = (max_height - 3).to_i
-        border_config = {type: :thick, top: false, bottom: false, left: false, right: false }
 
         if @config.nil? == false
-            print TTY::Box.frame("#{@config['author']}", padding: 1, align: :left, width: footer_width, top: top_position_footer, left: 0, border: border_config)
+            print TTY::Box.frame("#{@config['author']}", padding: 1, align: :left, width: footer_width, top: top_position_footer, left: 0, border: BORDER)
         end
 
-        print TTY::Box.frame("#{@current_slide + 1} / #{@total_slides}", padding: 1, align: :right, width: footer_width, top: top_position_footer, left: footer_width, border: border_config)
+        print TTY::Box.frame("#{@current_slide + 1} / #{@total_slides}", padding: 1, align: :right, width: footer_width, top: top_position_footer, left: footer_width, border: BORDER)
     end
 
     def quit()
@@ -150,7 +152,14 @@ class TPT
             end
 
             @slides = file.at(1).split("--new-slide")
+
+            # @slides.each do |slide|
+            #     # slide.lines.map! { |line| "\t" + line }.join("\n")
+            #     slide.gsub!("\n", "\n\t")
+            # end
+
             @total_slides = @slides.size
+
             return true
         else
             return false

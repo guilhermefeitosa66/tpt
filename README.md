@@ -87,6 +87,7 @@ tpt ~/.tpt/example.md 5
 - Prev slide: **b**
 - Next slide: **n**
 - Quit:       **q**
+- Reload:     **r**
 
 ## Screenshots
 
