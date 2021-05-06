@@ -1,6 +1,6 @@
 # TPT - Terminal Presentation Tool
 
-A simple tool for displaying presentations from *.md files (Markdown) on the terminal written in Ruby with much love ❤️
+A simple tool for displaying presentations from *.md files (Markdown) on the terminal, written in Ruby with much love ❤️
 
 ## Requirements
 
@@ -53,7 +53,7 @@ You'll need a *.md (Markdown) file and add at the beginning of the file:
 // the rest of your md file
 ```
 
-And add this flah: --new-slide in your *.md file, to split the slides sections
+And add this flag: --new-slide in your *.md file, to split the slides sections
 
 ```
 .
