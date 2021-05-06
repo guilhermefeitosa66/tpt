@@ -1,6 +1,6 @@
 # TPT - Terminal Presentation Tool
 
-A simple tool for displaying presentations from *.md files (Markdown) on the terminal, written in Ruby with much love ❤️
+A simple tool for displaying presentations from *.md files (Markdown) on the terminal, written in Ruby and with much love ❤️
 
 An alternative to: mdp, patat, vimdeck, present (python), etc.
 
