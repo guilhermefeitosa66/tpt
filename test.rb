@@ -4,15 +4,15 @@
 # this is not a proper test, like unit test, integration test, etc...
 # just a scratch of ideias to my app ;-)
 
-require "tty-markdown"
-require "tty-screen"
-require "tty-reader"
-require "tty-tree"
-require "tty-cursor"
-require "tty-platform"
-require "tty-box"
-require "colorize"
-require "json"
+# require "tty-markdown"
+# require "tty-screen"
+# require "tty-reader"
+# require "tty-tree"
+# require "tty-cursor"
+# require "tty-platform"
+# require "tty-box"
+# require "colorize"
+# require "json"
 
 # system "clear"
 #
@@ -86,19 +86,19 @@ require "json"
 # end
 
 # test 05
-theme = {
-  em: :yellow,
-  header: [:magenta, :bold],
-  hr: :yellow,
-  link: [:yellow, :underline],
-  list: :yellow,
-  strong: [:yellow, :bold],
-  table: :yellow,
-  quote: :yellow,
-  image: :bright_black,
-  note: :yellow,
-  comment: :bright_black
-}
+# theme = {
+#   em: :yellow,
+#   header: [:magenta, :bold],
+#   hr: :yellow,
+#   link: [:yellow, :underline],
+#   list: :yellow,
+#   strong: [:yellow, :bold],
+#   table: :yellow,
+#   quote: :yellow,
+#   image: :bright_black,
+#   note: :yellow,
+#   comment: :bright_black
+# }
 
 # puts TTY::Markdown.parse("# HEADING 01", theme: theme)
 # puts TTY::Markdown.parse("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", width: 80)
@@ -109,18 +109,56 @@ theme = {
 # puts tree.render
 
 # add some margin_left
-string =
-<<-eos
-Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magna
-aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit
-esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-occaecat cupidatat non proident, sunt in culpa qui officia
-deserunt mollit anim id est laborum.
-eos
+# string =
+# <<-eos
+# Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+# sed do eiusmod tempor incididunt ut labore et dolore magna
+# aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+# ullamco laboris nisi ut aliquip ex ea commodo consequat.
+# Duis aute irure dolor in reprehenderit in voluptate velit
+# esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+# occaecat cupidatat non proident, sunt in culpa qui officia
+# deserunt mollit anim id est laborum.
+# eos
+#
+# string = string.lines.map { |line| "\t" + line }
+#
+# puts string
 
-string = string.lines.map { |line| "\t" + line }
+# require 'catpix'
+#
+# catpix_setup = {
+#     :limit_x => 1.0,
+#     :limit_y => 0,
+#     :center_x => true,
+#     :center_y => true,
+#     :bg => "white",
+#     :bg_fill => false
+# }
+#
+# Catpix::print_image("./images/mario.png", catpix_setup)
 
-puts string
+
+# require "tco"
+# require "rmagick"
+#
+# img = Magick::Image::read("./images/mario-low.png").first
+# puts img.methods
+
+# img.each_pixel do |pixel, col, row|
+#   c = [pixel.red, pixel.green, pixel.blue].map { |v| 256 * (v / 65535.0) }
+#   # pixel.opacity == 65535 ? print("  ") : print("  ".bg c)
+#   puts if col >= img.columns - 1
+# end
+
+
+require 'catpix'
+
+Catpix::print_image "./images/mario.png",
+  :limit_x => 0.0,
+  :limit_y => 0.7,
+  :center_x => true,
+  :center_y => true
+  # :bg => "white",
+  # :bg_fill => true,
+  # :resolution => "low"
