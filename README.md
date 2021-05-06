@@ -81,8 +81,8 @@ And add this flag: --new-slide in your *.md file, to split the slides sections
 
 ## Usage
 
-- *tpt <path/to/slide.md>* or
-- *tpt <path/to/slide.md> <start slide number>*
+- tpt <path/to/slide.md>* or;
+- tpt <path/to/slide.md> <start slide number>.
 
 Example:
 
