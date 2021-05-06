@@ -1,6 +1,6 @@
 # TPT - Terminal Presentation Tool
 
-A simple tool for displaying presentations on the terminal written in Ruby
+A simple tool for displaying presentations from *.md files (Markdown) on the terminal written in Ruby with much love ❤️
 
 ## Requirements
 
@@ -37,6 +37,34 @@ echo "export PATH=$PATH:~/.tpt/" >> ~/.bashrc
 echo "export PATH=$PATH:~/.tpt/" >> ~/.zshrc
 ```
 
+## Setup file
+
+You'll need a *.md (Markdown) file and add at the beginning of the file:
+
+```javascript
+{  
+  "title": "My Terminal Presentation Tool",
+  "author": "Guilherme Feitoza"
+}
+--tpt-config
+.
+.
+.
+// the rest of your md file
+```
+
+And add this flah: --new-slide in your *.md file, to split the slides sections
+
+```
+.
+.
+.
+--new-slide
+.
+.
+.
+```
+
 ## Usage
 
 - *tpt <path/to/slide.md>* or
@@ -51,3 +79,11 @@ tpt ~/.tpt/example.md
 ```bash
 tpt ~/.tpt/example.md 5
 ```
+
+
+
+## Commands
+
+- Prev slide: **b**
+- Next slide: **n**
+- Quit:       **q**
