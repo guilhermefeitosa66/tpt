@@ -92,8 +92,8 @@ class TPT
     end
 
     def render_slide()
-        max_width = TTY::Screen.width
-        max_height = TTY::Screen.height
+        # max_width = TTY::Screen.width
+        # max_height = TTY::Screen.height
 
         slide_content = TTY::Markdown.parse(@slides.at(@current_slide), theme: THEME, width: WIDTH_TEXT)
         puts slide_content.gsub("\n", "\n\t")
@@ -105,7 +105,7 @@ class TPT
     def render_title_bar()
         if @config.nil? == false
             max_width = TTY::Screen.width
-            max_height = TTY::Screen.height
+            # max_height = TTY::Screen.height
             box_header = TTY::Box.frame(@config["title"], width: max_width, padding: 1, align: :center, border: BORDER)
             print box_header.bold.light_white.on_blue
         end
@@ -135,6 +135,7 @@ class TPT
         begin
             file = File.read(path).split("--tpt-config")
         rescue => exception
+            puts exception
             puts "Impossible to load file: #{path.bold}"
             puts "before open the file, check and the --tpt-config"
             return false

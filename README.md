@@ -91,11 +91,4 @@ tpt ~/.tpt/example.md 5
 
 ## Screenshots
 
-![plot](./screenshots/screenshot-1.png)
-![plot](./screenshots/screenshot-2.png)
-![plot](./screenshots/screenshot-3.png)
-![plot](./screenshots/screenshot-4.png)
-![plot](./screenshots/screenshot-5.png)
-![plot](./screenshots/screenshot-6.png)
-![plot](./screenshots/screenshot-7.png)
-![plot](./screenshots/screenshot-8.png)
+![plot](./screenshots/screenshot-animated.gif)
