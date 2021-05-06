@@ -91,4 +91,4 @@ tpt ~/.tpt/example.md 5
 
 ## Screenshots
 
-![plot](./screenshots/screenshot-animated.gif)
+![plot](./screenshots/screenshots-animated.gif)
