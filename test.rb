@@ -152,13 +152,14 @@
 # end
 
 
-require 'catpix'
+require_relative './catpix/lib/catpix.rb'
 
-Catpix::print_image "./images/mario.png",
-  :limit_x => 0.0,
-  :limit_y => 0.7,
-  :center_x => true,
-  :center_y => true
-  # :bg => "white",
-  # :bg_fill => true,
-  # :resolution => "low"
+img = Catpix::print_image "./images/tux.png",
+    # :bg => "white",
+    # :bg_fill => true,
+    # :resolution => "low",
+    :limit_x => 0,
+    :limit_y => 0.3,
+    :center_y => true,
+    :center_x => true
+puts img

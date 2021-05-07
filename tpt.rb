@@ -10,6 +10,7 @@ require "tty-platform"
 require "tty-box"
 require "colorize"
 require "json"
+require_relative './catpix/lib/catpix.rb'
 
 class TPT
     # Constants for configuration
@@ -96,7 +97,24 @@ class TPT
         # max_height = TTY::Screen.height
 
         slide_content = TTY::Markdown.parse(@slides.at(@current_slide), theme: THEME, width: WIDTH_TEXT)
-        puts slide_content.gsub("\n", "\n\t")
+
+        slide_content = slide_content.lines.map do |line|
+            if line.include?('-image=')
+                params = line.gsub('“', '').gsub('”', '').split(',')
+                path = params[0].sub('-image=', '').strip
+                size = params[1].strip
+
+                if(File.exist?(path))
+                    "\n" + self.render_image(path, size) + "\n"
+                else
+                    line
+                end
+            else
+                line
+            end
+        end
+
+        puts slide_content.join().gsub("\n", "\n\t")
 
         # box = TTY::Box.frame(slide_content, width: 80, height: (max_height - 6), border: BORDER, left: 10)
         # puts box
@@ -122,6 +140,19 @@ class TPT
         end
 
         print TTY::Box.frame("#{@current_slide + 1} / #{@total_slides}", padding: 1, align: :right, width: footer_width, top: top_position_footer, left: footer_width, border: BORDER)
+    end
+
+    def render_image(path="./images/tux.png", size="low")
+        options = {
+            :limit_x => 0,
+            :limit_y => 0.3,
+            :center_y => true,
+            :center_x => true
+        }
+
+        img = Catpix::print_image(path, options)
+
+        return img
     end
 
     def quit()

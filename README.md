@@ -10,11 +10,19 @@ An alternative to: mdp, patat, vimdeck, present (python), etc.
 
 ## Requirements
 
-Tested only in Ubuntu 20.04 and derivatives
+```bash
+sudo apt install build-essential ruby libmagickwand-dev imagemagick
+```
 
-- Ruby 2.5.1 (may work in previous versions)
+Or install ruby from a version manager tool, like: [RVM](https://rvm.io/rvm/install) or [asdf-vm](https://asdf-vm.com/#/core-manage-asdf)
 
-> **Machine useted to test**
+## Enviroment used to test
+
+- May work on Ubuntu 20.04 and derivatives
+
+- Ruby 2.5.1 (may work in previous versions and/or current stable versions)
+
+> **Machine used to test**
 >
 > OS: Pop!_OS 20.10 x86_64
 >

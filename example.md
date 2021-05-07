@@ -86,15 +86,12 @@ Some text to show that the reference links can follow later.
 
 # IMAGES
 
-Here's our logo (hover to see the title text):
+The size shold be: **low**, **mid** or **big**
 
-Inline-style:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+\-\-image="./path/to/image.[png, gif, jpg]", "size"
 
-Reference-style:
-![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+--image="./images/tux.png", "low"
 
 --new-slide
 
