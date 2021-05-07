@@ -4,9 +4,9 @@ A simple tool for displaying presentations from *.md files (Markdown) on the ter
 
 An alternative to: mdp, patat, vimdeck, present (python), etc.
 
-## Screenshots
+## Watch the video
 
-![Screenshots](./screenshots/screenshots-animated.gif)
+[![Watch the video](https://img.youtube.com/vi/l-LSZxq9wcU/maxresdefault.jpg)](https://www.youtube.com/watch?v=l-LSZxq9wcU)
 
 ## Requirements
 
