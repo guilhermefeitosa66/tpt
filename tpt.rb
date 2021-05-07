@@ -115,9 +115,6 @@ class TPT
         end
 
         puts slide_content.join().gsub("\n", "\n\t")
-
-        # box = TTY::Box.frame(slide_content, width: 80, height: (max_height - 6), border: BORDER, left: 10)
-        # puts box
     end
 
     def render_title_bar()
@@ -143,9 +140,20 @@ class TPT
     end
 
     def render_image(path="./images/tux.png", size="low")
+        limit_y = case size
+        when "low"
+            0.3
+        when "mid"
+            0.5
+        when "big"
+            0.7
+        else
+            0.3
+        end
+
         options = {
             :limit_x => 0,
-            :limit_y => 0.3,
+            :limit_y => limit_y,
             :center_y => true,
             :center_x => true
         }
